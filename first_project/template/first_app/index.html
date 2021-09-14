@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>First App</title>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+  </head>
+  <body>
+    <h1>First Application</h1>
+    <p>{{ access_records }}</p><br><br>
+
+    <h1>First Application-Table View</h1>
+    {% if access_records %}
+      <table class="tb">
+        {% for acc in access_records %}
+        <tr>
+          <td>{{ acc.category }}</td>
+          <td>{{ acc.access_date }}</td>
+        </tr>
+        {% endfor %}
+      </table>
+      {% else %}
+      {% endif %}
+    <center><img src={%static "images/rose.jpg"%} ></center>
+  </body>
+</html>

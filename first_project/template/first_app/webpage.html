@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+  </head>
+  <body>
+    <form method="post">
+      <h1>WEBPAGE</h1>
+    <div class="top">
+      <lable>Category(Topic name):</label>
+        {{ form.category }}<br>
+      <lable>Name:</label>
+          {{ form.name }}<br>
+      <lable>URL:</label>
+              {{ form.url }}
+    {% csrf_token %}<br>
+    <input type="submit" value="Submit">
+    </div>
+    </form>
+  </body>
+</html>

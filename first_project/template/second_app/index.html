@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <style>
+table {
+  font-family: arial, sans-serif;
+  border-collapse: collapse;
+  width: 70%;
+}
+
+td, th {
+  border: 1px solid #dddddd;
+  text-align: left;
+  padding: 8px;
+}
+tr:nth-child(even) {
+  background-color: #dddddd;
+}
+.div {
+    margin: 0 0 0 20%;
+      height: 200px;
+      width: 50%;
+      padding: 1% 0 0 3%;
+      border: 2px solid red;
+      border-radius: 10px;
+}
+.div1 {
+  font-size: 20px;
+      color: blue;
+}
+form input[type="submit"]{
+  background-color: green;
+      border: none;
+      color: white;
+      padding: 5px 20px;
+      text-align: center;
+      text-decoration: none;
+      display: inline-block;
+      font-size: 16px;
+      margin: 2% 0 0 29%;
+      cursor: pointer;
+}
+h1 {
+  color: green;
+  text-align: center;
+  font-style: oblique;
+}
+</style>
+  </head>
+  <body>
+    <h1 style="color:gray;"><u><i>Vehicle Details</i></u></h1>
+
+    {% if access_records %}
+      <table>
+        <tr style="color:red;">
+          <th>Name</th>
+          <th>Model</th>
+          <th>Price</th></tr>
+        {% for acc in access_records %}
+        <tr>
+          <td>{{ acc.b_name }}</td>
+          {% for abb in access_car %}
+            {% ifequal acc.b_name abb %}
+
+            <td>{{ abb.c_name }}</td>
+            {% endifequal %}
+          {% endfor %}
+          <td>{{ acc.price }}</td>
+        </tr>
+        {% endfor %}
+      </table>
+      {% endif %}
+<br><br>
+
+      <div class="div">
+      <form method="post">
+        <h1>VEHICLE</h1>
+      <div class="div1">
+        <label>Company</label>
+        {{ form.company }}
+      </div>
+      {% csrf_token %}
+      <input type="submit" value="Submit">
+      </form>
+      </div>
+  </body>
+</html>

@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <style>
+table {
+  font-family: arial, sans-serif;
+  border-collapse: collapse;
+  width: 70%;
+}
+
+td, th {
+  border: 1px solid #dddddd;
+  text-align: left;
+  padding: 8px;
+}
+tr:nth-child(even) {
+  background-color: #dddddd;
+}
+.div {
+    margin: 0 0 0 20%;
+      height: 200px;
+      width: 50%;
+      padding: 1% 0 0 3%;
+      border: 2px solid red;
+      border-radius: 10px;
+}
+.div1 {
+  font-size: 20px;
+      color: blue;
+}
+form input[type="submit"]{
+  background-color: green;
+      border: none;
+      color: white;
+      padding: 5px 20px;
+      text-align: center;
+      text-decoration: none;
+      display: inline-block;
+      font-size: 16px;
+      margin: 2% 0 0 29%;
+      cursor: pointer;
+}
+h1 {
+  color: green;
+  text-align: center;
+  font-style: oblique;
+}
+ input[type="text"]{
+  border-radius: 5px;
+}
+</style>
+  </head>
+  <body>
+    <h1 style="color:gray;"><u><i>Country Details</i></u></h1>
+<br>
+      <div class="div">
+      <form method="post">
+        <h1>Country</h1>
+      <div class="div1">
+        <label>Name</label>
+        {{ form.name }}<br>
+        <label>Currency</label>
+        {{ form.currency }}<br>
+        <label>Bank</label>
+        {{ form.bank }}
+      </div>
+      {% csrf_token %}
+      <input type="submit" value="Submit">
+      </form>
+      </div>
+  </body>
+</html>

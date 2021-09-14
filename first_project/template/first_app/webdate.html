@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+  </head>
+  <body>
+    <form method="post">
+      <h1>WEBDATE</h1>
+      <div class="top">
+        <lable>Category:</label>
+          {{ form.category }}<br>
+        <lable>Access Date:</label>
+            {{ form.access_date }}<br>
+      {% csrf_token %}<br>
+      <input type="submit" value="Submit">
+      </div>
+    </form>
+  </body>
+</html>
